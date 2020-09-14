@@ -19,6 +19,7 @@ class App extends Component {
         console.log('==========================')
         console.log(jsonRes)
         console.log('==========================')
+        this.setState({ characters: jsonRes})
       })
       .catch(err => {
         console.log('Something went wrong!')
@@ -29,15 +30,15 @@ class App extends Component {
     return (
       <div>
         <Hero />
-        <section className='section'>
+        <section className='section has-background-dark'>
               <div className='container'>
-                  <div className='columns'>
+                  <div className='columns is-multiline is-vcentered'>
                   {
                     this.state.characters.map (character => {
                       console.log(character)
                       return (
-                        <div className='column'>
-                            <Characters key={character._id} name={character.name} />
+                        <div className='column is-one-third'>
+                            <Characters key={character._id} name={character.name} age={character.age} bio={character.bio} />
                         </div>
                       )
                     })}
