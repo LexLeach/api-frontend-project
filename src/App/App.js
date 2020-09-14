@@ -30,15 +30,14 @@ class App extends Component {
     return (
       <div>
         <Hero />
-        <section className='section has-background-dark'>
+        <section className='section has-background-grey-dark'>
               <div className='container'>
                   <div className='columns is-multiline is-vcentered'>
                   {
                     this.state.characters.map (character => {
-                      console.log(character)
                       return (
-                        <div className='column is-one-third'>
-                            <Characters key={character._id} name={character.name} age={character.age} bio={character.bio} />
+                        <div className='column is-one-third' key={character._id}>
+                            <Characters link={character.image} name={character.name} age={character.age} bio={character.bio} />
                         </div>
                       )
                     })}
