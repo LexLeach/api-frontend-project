@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react"
+import Hero from '../Hero/Hero'
+import Characters from '../Character-Cards/Character-Cards'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super()
+
+    this.state = {
+      characters: []
+    }
+  }
+  
+  componentDidMount() {
+    const url = "https://lexleach-api-project.herokuapp.com/characters"
+    fetch(url)
+      .then(res => res.json())
+      .then(jsonRes => {
+        console.log('==========================')
+        console.log(jsonRes)
+        console.log('==========================')
+      })
+      .catch(err => {
+        console.log('Something went wrong!')
+      })
+  }
+
+  render() {
+    return (
+      <div>
+        <Hero />
+        <section className='section'>
+              <div className='container'>
+                  <div className='columns'>
+                  {
+                    this.state.characters.map (character => {
+                      console.log(character)
+                      return (
+                        <div className='column'>
+                            <Characters key={character._id} name={character.name} />
+                        </div>
+                      )
+                    })}
+                  </div>
+              </div>
+          </section>
+      </div>
+    )
+  }
 }
 
 export default App;
