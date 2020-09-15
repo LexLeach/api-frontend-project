@@ -2,7 +2,7 @@
 
 Animated People Initiative
 
-A collect of anime characters. Let us expand it!
+A collection of anime characters. Let us expand it!
 
 THE END...
  
