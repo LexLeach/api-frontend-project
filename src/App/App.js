@@ -1,51 +1,59 @@
-import React, { Component } from "react"
-import Hero from '../Hero/Hero'
-import Characters from '../Character-Cards/Character-Cards'
+import React, { Component } from "react";
+import Hero from "../Hero/Hero";
+import Characters from "../Character-Cards/Character-Cards";
+import "../css/mystyles.css";
 
 class App extends Component {
   constructor(props) {
-    super()
+    super();
 
     this.state = {
-      characters: []
-    }
+      characters: [],
+    };
   }
-  
+
   componentDidMount() {
-    const url = "https://lexleach-api-project.herokuapp.com/characters"
+    const url = "https://lexleach-api-project.herokuapp.com/characters";
     fetch(url)
-      .then(res => res.json())
-      .then(jsonRes => {
-        console.log('==========================')
-        console.log(jsonRes)
-        console.log('==========================')
-        this.setState({ characters: jsonRes})
+      .then((res) => res.json())
+      .then((jsonRes) => {
+        console.log("==========================");
+        console.log(jsonRes);
+        console.log("==========================");
+        this.setState({ characters: jsonRes });
       })
-      .catch(err => {
-        console.log('Something went wrong!')
-      })
+      .catch((err) => {
+        console.log("Something went wrong!");
+      });
   }
 
   render() {
     return (
       <div>
         <Hero />
-        <section className='section has-background-grey-dark'>
-              <div className='container'>
-                  <div className='columns is-multiline is-vcentered'>
-                  {
-                    this.state.characters.map (character => {
-                      return (
-                        <div className='column is-one-third' key={character._id}>
-                            <Characters link={character.image} name={character.name} age={character.age} bio={character.bio} />
-                        </div>
-                      )
-                    })}
+        <section className="section has-background-grey-light">
+          <div className="container">
+            <div className="columns is-multiline is-vcentered">
+              {this.state.characters.map((character) => {
+                return (
+                  <div className="column is-one-third" key={character._id}>
+                    <Characters
+                      link={character.image}
+                      name={character.name}
+                      age={character.age}
+                      bio={character.bio}
+                      skills={character.skills}
+                      likes={character.likes}
+                      dislikes={character.dislikes}
+                    />
                   </div>
-              </div>
-          </section>
+                );
+              })}
+            </div>
+          </div>
+        </section>
       </div>
-    )
+    );
   }
 }
 
