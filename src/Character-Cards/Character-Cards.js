@@ -32,8 +32,8 @@ export default function Characters({
           </div>
           <div className="level mt-2">
             <div className="field is-grouped level-left mt-3">
-              <p className="control">Likes: {likes}</p>
-              <p className="control">Dislikes: {dislikes} </p>
+              <p className="control is-size-7">Likes: {likes}</p>
+              <p className="control is-size-7">Dislikes: {dislikes} </p>
             </div>
             <div className="level-right">
               <div className="buttons has-addons level-right">
