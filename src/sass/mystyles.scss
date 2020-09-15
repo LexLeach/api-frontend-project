@@ -12,15 +12,16 @@ $onyx: #39393a;
 $pink: #fa7c91;
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
+$family-sans-serif: "Nunito",
+sans-serif;
 $grey-dark: $onyx;
 //$grey-light: $skobeloff;
 $white-ter: $pink;
 //$grey-lighter: $coral;
 $primary: $yellow;
 $link: $platinum;
-$widescreen-enabled: true;
-$fullhd-enabled: true;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
 
 // Update some of Bulma's component variables
 $body-background-color: $onyx;
