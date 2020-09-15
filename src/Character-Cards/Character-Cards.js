@@ -8,9 +8,11 @@ export default function Characters({
   likes,
   dislikes,
   skills,
+  animeName,
+  url,
 }) {
   return (
-    <article className="media notification has-background-grey-lighter">
+    <article className="media notification is-danger">
       <div className="media-content">
         <div className="content">
           <img src={link} className="image is-256x256" alt="" />
@@ -53,14 +55,25 @@ export default function Characters({
       <div className="modal">
         <div className="modal-background"></div>
         <div className="modal-card">
-          <header className="modal-card-head">
+          <header className="modal-card-head has-background-danger">
             <p className="modal-card-title">{name}</p>
           </header>
-          <section className="modal-card-body">
-            {/* <p>{bio}</p>
-            <p>{skills}</p> */}
+          <section className="modal-card-body has-text-black">
+            <p>
+              <b>Bio: </b>
+              {bio}
+            </p>
+            {/* <p>{skills}</p> */}
+            <p>
+              <b>Anime Name: </b>
+              {animeName}
+            </p>
+            <p>
+              <b>URL: </b>
+              {url}
+            </p>
           </section>
-          <footer className="modal-card-foot">
+          <footer className="modal-card-foot has-background-danger">
             <button className="button">Close</button>
           </footer>
         </div>
