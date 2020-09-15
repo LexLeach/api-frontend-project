@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Characters({
   name,
@@ -11,6 +11,16 @@ export default function Characters({
   animeName,
   url,
 }) {
+  const [modalClass, setModalClass] = useState("modal");
+
+  const activateModal = () => {
+    setModalClass("modal is-active");
+  };
+
+  const closeModal = () => {
+    setModalClass("modal");
+  };
+
   return (
     <article className="media notification is-danger">
       <div className="media-content">
@@ -27,7 +37,9 @@ export default function Characters({
               </button>
             </p>
             <p className="control">
-              <button className="button is-primary">More Info</button>
+              <button className="button is-primary" onClick={activateModal}>
+                More Info
+              </button>
             </p>
           </div>
           <div className="level mt-2">
@@ -52,7 +64,7 @@ export default function Characters({
           </div>
         </div>
       </div>
-      <div className="modal">
+      <div className={modalClass}>
         <div className="modal-background"></div>
         <div className="modal-card">
           <header className="modal-card-head has-background-danger">
@@ -74,7 +86,9 @@ export default function Characters({
             </p>
           </section>
           <footer className="modal-card-foot has-background-danger">
-            <button className="button">Close</button>
+            <button className="button" onClick={closeModal}>
+              Close
+            </button>
           </footer>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, Component } from "react";
 import Hero from "../Hero/Hero";
 import Characters from "../Character-Cards/Character-Cards";
 import axios from "axios";
