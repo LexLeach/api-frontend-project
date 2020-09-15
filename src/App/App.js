@@ -64,14 +64,19 @@ class App extends Component {
       <div>
         <Hero />
         <section className="section has-background-white">
-          <div className="field has-background-white">
-            <input
-              id="switch"
-              type="checkbox"
-              name="switch"
-              className="switch is-success is-small"
-            ></input>
-            <label htmlFor="switch">Dark Mode</label>
+          <div className="level">
+            <div className="field level-left has-background-white">
+              <input
+                id="switch"
+                type="checkbox"
+                name="switch"
+                className="switch is-success is-small"
+              ></input>
+              <label htmlFor="switch">Dark Mode</label>
+            </div>
+            <button className="button level-right is-primary">
+              Create Character
+            </button>
           </div>
           <div className="container">
             <div className="columns is-multiline is-vcentered">

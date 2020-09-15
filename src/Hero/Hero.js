@@ -6,11 +6,11 @@ export default function Hero() {
       <div className="hero-body">
         <div className="container">
           <figure className="center">
-            <h1>A</h1>
+            <h1 className="has-text-primary">A</h1>
             <h3>nimated</h3>
-            <h1>P</h1>
+            <h1 className="has-text-primary">P</h1>
             <h3>eople</h3>
-            <h1>I</h1>
+            <h1 className="has-text-primary">I</h1>
             <h3>nitiative</h3>
           </figure>
         </div>

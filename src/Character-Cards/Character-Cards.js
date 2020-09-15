@@ -20,14 +20,14 @@ export default function Characters({
           <p className="is-size-5">Age: {age}</p>
           <div className="field is-grouped is-primary">
             <p className="control">
-              <button className="button is-link">
+              <button className="button is-primary">
                 <span className="icon is-small has-text-white-ter">
                   <i className="fas fa-heart"></i>
                 </span>
               </button>
             </p>
             <p className="control">
-              <button className="button is-link">More Info</button>
+              <button className="button is-primary">More Info</button>
             </p>
           </div>
           <div className="level mt-2">
@@ -37,12 +37,12 @@ export default function Characters({
             </div>
             <div className="level-right">
               <div className="buttons has-addons level-right">
-                <button className="button is-link is-small">
+                <button className="button is-primary is-small">
                   <span className="icon is-small has-text-success">
                     <i className="fas fa-thumbs-up"></i>
                   </span>
                 </button>
-                <button className="button is-link is-small">
+                <button className="button is-primary is-small">
                   <span className="icon is-small has-text-danger-dark">
                     <i className="fas fa-thumbs-down"></i>
                   </span>
