@@ -13,6 +13,7 @@ export default function CreateCharacter({
   modalFooter,
   modalInput,
   buttonPlusMinus,
+  darkMode,
 }) {
   const [modalClass, setModalClass] = useState("modal");
   const [name, setName] = useState("");
@@ -91,7 +92,9 @@ export default function CreateCharacter({
             className={slider}
             onClick={toggle}
           ></input>
-          <label htmlFor="switch">Dark Mode</label>
+          <label className={darkMode} htmlFor="switch">
+            Dark Mode
+          </label>
         </div>
         <button className={buttonCreateChar} onClick={activateModal}>
           Create Character

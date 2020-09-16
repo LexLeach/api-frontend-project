@@ -32,6 +32,7 @@ class App extends Component {
         modalSection: "modal-card-body has-text-black",
         modalFooter: "modal-card-foot has-background-danger",
         modalInput: "input is-info",
+        darkMode: "has-text-grey-dark ",
       },
     };
     this.enableDarkMode = this.enableDarkMode.bind(this);
@@ -85,6 +86,7 @@ class App extends Component {
           "modal-card-body has-text-link has-background-grey-lighter",
         modalFooter: "modal-card-foot has-background-grey-dark",
         modalInput: "input is-link",
+        darkMode: "has-text-link",
       },
     });
     this.setState({ sliderState: "switch is-link is-small DarkMode" });
@@ -112,6 +114,7 @@ class App extends Component {
         modalSection: "modal-card-body has-text-black",
         modalFooter: "modal-card-foot has-background-danger",
         modalInput: "input is-info",
+        darkMode: "has-text-grey-link",
       },
     });
     this.setState({ sliderState: "switch is-link is-small" });
@@ -139,6 +142,7 @@ class App extends Component {
           modalFooter={this.state.lightMode.modalFooter}
           modalInput={this.state.lightMode.modalInput}
           buttonPlusMinus={this.state.lightMode.buttonPlusMinus}
+          darkMode={this.state.lightMode.darkMode}
         />
         <section className={this.state.lightMode.charCards}>
           <div className="container">
