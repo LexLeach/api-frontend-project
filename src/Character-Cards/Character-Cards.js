@@ -7,9 +7,20 @@ export default function Characters({
   link,
   likes,
   dislikes,
-  skills,
+  skillName,
+  skillDescrp,
   animeName,
   url,
+  cards,
+  buttonTrash,
+  buttonGeneral,
+  buttonLikeGroup,
+  h1Dark,
+  pDark,
+  modalHeader,
+  modalName,
+  modalSection,
+  modalFooter,
 }) {
   const [modalClass, setModalClass] = useState("modal");
 
@@ -22,39 +33,50 @@ export default function Characters({
   };
 
   return (
-    <article className="media notification is-danger">
+    <article className={cards}>
       <div className="media-content">
         <div className="content">
-          <img src={link} className="image is-256x256" alt="" />
-          <h1 className="is-size-4">{name}</h1>
-          <p className="is-size-5">Age: {age}</p>
+          <img src={link} className="is-128x128" alt="" />
+          <div className="field is-grouped mt-4">
+            <h1 className={h1Dark}>{name}</h1>
+            <div className="level-right">
+              <div className="buttons has-addons level-right">
+                <button className={buttonTrash}>
+                  <span className="icon has-text-danger-dark">
+                    <i className="fas fa-trash-alt"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p className={h1Dark}>Age: {age}</p>
           <div className="field is-grouped is-primary">
             <p className="control">
-              <button className="button is-primary">
+              <button className={buttonGeneral}>
                 <span className="icon is-small has-text-white-ter">
                   <i className="fas fa-heart"></i>
                 </span>
               </button>
             </p>
             <p className="control">
-              <button className="button is-primary" onClick={activateModal}>
+              <button className={buttonGeneral} onClick={activateModal}>
                 More Info
               </button>
             </p>
           </div>
           <div className="level mt-2">
             <div className="field is-grouped level-left mt-3">
-              <p className="control is-size-7">Likes: {likes}</p>
-              <p className="control is-size-7">Dislikes: {dislikes} </p>
+              <p className={pDark}>Likes: {likes}</p>
+              <p className={pDark}>Dislikes: {dislikes} </p>
             </div>
             <div className="level-right">
               <div className="buttons has-addons level-right">
-                <button className="button is-primary is-small">
+                <button className={buttonLikeGroup}>
                   <span className="icon is-small has-text-success">
                     <i className="fas fa-thumbs-up"></i>
                   </span>
                 </button>
-                <button className="button is-primary is-small">
+                <button className={buttonLikeGroup}>
                   <span className="icon is-small has-text-danger-dark">
                     <i className="fas fa-thumbs-down"></i>
                   </span>
@@ -67,26 +89,31 @@ export default function Characters({
       <div className={modalClass}>
         <div className="modal-background"></div>
         <div className="modal-card">
-          <header className="modal-card-head has-background-danger">
-            <p className="modal-card-title">{name}</p>
+          <header className={modalHeader}>
+            <p className={modalName}>{name}</p>
           </header>
-          <section className="modal-card-body has-text-black">
+          <section className={modalSection}>
             <p>
               <b>Bio: </b>
               {bio}
             </p>
-            {/* <p>{skills}</p> */}
+            <p>
+              <b>Skills: </b>
+              {skillName}-{skillDescrp}
+            </p>
             <p>
               <b>Anime Name: </b>
               {animeName}
             </p>
             <p>
               <b>URL: </b>
-              {url}
+              <a href={url} alt="">
+                Read More
+              </a>
             </p>
           </section>
-          <footer className="modal-card-foot has-background-danger">
-            <button className="button" onClick={closeModal}>
+          <footer className={modalFooter}>
+            <button className={buttonGeneral} onClick={closeModal}>
               Close
             </button>
           </footer>

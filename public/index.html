@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="../css/mystyles.css">
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <style>
+    * {
+      overflow: hidden;
+      outline-width: 0;
+    }
+
+
     .center {
       display: flex;
       justify-content: center;
@@ -15,15 +21,15 @@
     }
 
     .center h1 {
-      font-size: 40px;
+      font-size: 80px;
     }
 
     .bottom-a {
       margin-top: auto;
     }
 
-    .hide {
-      display: none;
+    .button.noO:focus {
+      outline-width: 0;
     }
   </style>
 </head>
