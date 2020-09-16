@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function CreateCharacter() {
+export default function CreateCharacter({
+  lightMode,
+  toggle,
+  slider,
+  buttonCreateChar,
+  buttonGeneral,
+  modalHeader,
+  modalName,
+  modalSection,
+  modalFooter,
+  modalInput,
+  buttonPlusMinus,
+}) {
   const [modalClass, setModalClass] = useState("modal");
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -69,35 +81,33 @@ export default function CreateCharacter() {
   };
 
   return (
-    <div className="section has-background-white">
+    <div className={lightMode}>
       <div className="level">
         <div className="field level-left">
           <input
             id="switch"
             type="checkbox"
             name="switch"
-            className="switch is-success is-small"
+            className={slider}
+            onClick={toggle}
           ></input>
           <label htmlFor="switch">Dark Mode</label>
         </div>
-        <button
-          className="button level-right is-primary"
-          onClick={activateModal}
-        >
+        <button className={buttonCreateChar} onClick={activateModal}>
           Create Character
         </button>
       </div>
       <div className={modalClass}>
         <div className="modal-background"></div>
         <div className="modal-card">
-          <header className="modal-card-head has-background-danger">
-            <p className="modal-card-title">Create a Character</p>
+          <header className={modalHeader}>
+            <p className={modalName}>Create a Character</p>
           </header>
-          <section className="modal-card-body has-text-black">
+          <section className={modalSection}>
             <div className="field">
               <div className="control">
                 <input
-                  className="input is-info"
+                  className={modalInput}
                   type="text"
                   placeholder="Name"
                   onChange={(e) => handleInput(e, "name")}
@@ -107,7 +117,7 @@ export default function CreateCharacter() {
             <div className="field">
               <div className="control">
                 <input
-                  className="input is-info"
+                  className={modalInput}
                   type="text"
                   placeholder="Age"
                   onChange={(e) => handleInput(e, "age")}
@@ -117,7 +127,7 @@ export default function CreateCharacter() {
             <div className="field">
               <div className="control">
                 <input
-                  className="input is-info"
+                  className={modalInput}
                   type="text"
                   placeholder="Bio"
                   onChange={(e) => handleInput(e, "bio")}
@@ -127,7 +137,7 @@ export default function CreateCharacter() {
             <div className="field">
               <div className="control">
                 <input
-                  className="input is-info"
+                  className={modalInput}
                   type="text"
                   placeholder="Anime Name"
                   onChange={(e) => handleInput(e, "animeName")}
@@ -137,7 +147,7 @@ export default function CreateCharacter() {
             <div className="field">
               <div className="control">
                 <input
-                  className="input is-info"
+                  className={modalInput}
                   type="text"
                   placeholder="Read More URL"
                   onChange={(e) => handleInput(e, "url")}
@@ -147,7 +157,7 @@ export default function CreateCharacter() {
             <div className="field">
               <div className="control">
                 <input
-                  className="input is-info"
+                  className={modalInput}
                   type="text"
                   placeholder="Image"
                   onChange={(e) => handleInput(e, "image")}
@@ -160,12 +170,12 @@ export default function CreateCharacter() {
                   <h3>Skill</h3>
                   <div className="level-right">
                     <div className="buttons has-addons level-right">
-                      <button className="button is-white is-small">
+                      <button className={buttonPlusMinus}>
                         <span className="icon is-small has-text-success">
                           <i className="fas fa-plus-square"></i>
                         </span>
                       </button>
-                      <button className="button is-white is-small">
+                      <button className={buttonPlusMinus}>
                         <span className="icon is-small has-text-danger-dark">
                           <i className="fas fa-minus-square"></i>
                         </span>
@@ -174,7 +184,7 @@ export default function CreateCharacter() {
                   </div>
                 </div>
                 <input
-                  className="input is-info"
+                  className={modalInput}
                   type="text"
                   placeholder="Skill Name"
                   onChange={(e) => handleInput(e, "skillName")}
@@ -184,7 +194,7 @@ export default function CreateCharacter() {
             <div className="field">
               <div className="control">
                 <input
-                  className="input is-info"
+                  className={modalInput}
                   type="text"
                   placeholder="Skill Description"
                   onChange={(e) => handleInput(e, "skillDescr")}
@@ -192,15 +202,12 @@ export default function CreateCharacter() {
               </div>
             </div>
           </section>
-          <footer className="modal-card-foot has-background-danger">
+          <footer className={modalFooter}>
             <div className="buttons">
-              <button className="button is-primary" onClick={closeModal}>
+              <button className={buttonGeneral} onClick={closeModal}>
                 Close
               </button>
-              <button
-                className="button is-pulled-right is-primary"
-                onClick={createCharacter}
-              >
+              <button className={buttonGeneral} onClick={createCharacter}>
                 Create Character
               </button>
             </div>
